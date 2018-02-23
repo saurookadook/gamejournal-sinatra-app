@@ -1,16 +1,16 @@
 user1 = User.create(username: "saurookadook", email: "maskiella@gmail.com", password: "ilovecatz")
 
 platforms_list = {
-  "Steam" = {},
-  "PS4" = {},
-  "XboxOne" = {},
-  "Nintendo 3DS" = {},
-  "Nintendo Switch" = {},
-  "PS3" = {},
-  "Xbox360" = {},
-  "Nintendo DS" = {},
-  "Nintendo WiiU" = {},
-  "Mobile" = {}
+  "Steam" => {},
+  "PS4" => {},
+  "XboxOne" => {},
+  "Nintendo 3DS" => {},
+  "Nintendo Switch" => {},
+  "PS3" => {},
+  "Xbox360" => {},
+  "Nintendo DS" => {},
+  "Nintendo WiiU" => {},
+  "Mobile" => {}
 }
 
 platforms_list.each do |name, platform_hash|
@@ -21,12 +21,12 @@ platforms_list.each do |name, platform_hash|
 end
 
 genres_list = {
-  "Action" = {},
-  "Adventure" = {},
-  "MMO" = {},
-  "RPG" = {},
-  "Simulation" = {},
-  "Strategy" = {}
+  "Action" => {},
+  "Adventure" => {},
+  "MMO" => {},
+  "RPG" => {},
+  "Simulation" => {},
+  "Strategy" => {}
 }
 
 genres_list.each do |name, genre_hash|
