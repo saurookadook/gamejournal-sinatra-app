@@ -1,5 +1,8 @@
 class CreateGames < ActiveRecord::Migration[5.1]
   def change
-    t.string :title
+    create_table :games do |t|
+      t.string :title
+      t.string :genre_id
+    end
   end
 end
