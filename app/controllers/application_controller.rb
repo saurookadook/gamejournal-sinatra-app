@@ -66,4 +66,32 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  post '/signup' do
+    if User.find_by(username: params[:username]) || User.find_by(email: params[:email])
+      flash[:message] = "There is already an account with the username and/or email that you entered. Please try again."
+      redirect to "/signup"
+    elsif params[:username] != "" && params[:email] != "" && params[:password] != ""
+      @user = User.create(params)
+      session[:id] = @user.id
+      redirect to "/users/show"
+    else
+      flash[:message] = "You must enter a username, email, and password in order to create an account. Please try again."
+      redirect to "/signup"
+    end
+  end
+
+  post '/login' do
+    @user = User.find_by(username: params[:username])
+    if @user.nil?
+      flash[:message] = "Could not find an account with the username you entered. Please try again."
+      redirect to "/login"
+    elsif @user.authenticate(params[:password])
+      session[:id] = @user.id
+      redirect to "/users/show"
+    else
+      flash[:message] = "You have entered an incorrect username and/or password. Please try again."
+      redirect to "/login"
+    end
+  end
+
 end
