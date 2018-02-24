@@ -1,0 +1,26 @@
+body {
+  background: #808080;
+  color: #FFF;
+  text-align: center;
+}
+
+.nav_links > a {
+  background: #C0C0C0;
+  color: #FFF;
+  padding: 5px;
+  text-decoration: none;
+}
+
+.lists {
+  list-style-type: none;
+  text-align: left;
+}
+
+.lists a {
+  color: #FFF;
+  text-decoration: none;
+}
+
+/*ul li {
+  list-style-type: : none;
+}*/

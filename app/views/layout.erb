@@ -2,15 +2,18 @@
 <html>
   <head>
     <title>GameJournal</title>
+    <link href="<%= url('/style.css') %>" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <a href="/">Homepage</a>
+    <div class="nav_links"><a href="/">Homepage</a>
     <% if logged_in? %>
+      <a href="/users/<%= @current_user.slug %>">User Page</a>
       <a href="/logout">Logout</a>
     <% else %>
       <a href="/login">Log In!</a>
       <a href="/signup">Sign Up!</a>
     <% end %>
+  </div>
 
     <%= yield %>
 

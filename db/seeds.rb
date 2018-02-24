@@ -1,4 +1,5 @@
 user1 = User.create(username: "saurookadook", email: "maskiella@gmail.com", password: "ilovecatz")
+user2 = User.create(username: "HerpDerpSean", email: "slewis@bostonphil.org", password: "imaderptits")
 
 platforms_list = {
   "Steam" => {},
@@ -36,7 +37,11 @@ genres_list.each do |name, genre_hash|
   # p.save
 end
 
-game1 = Game.create(title: "Doom", genre_id: "4")
+game1 = Game.create(title: "Doom", genre_id: 4)
+game2 = Game.create(title: "Mystic Messenger", genre_id: 5)
 
 user1.games << game1
 user1.games.last.platforms << Platform.find_by_id(5)
+
+user2.games << game2
+user2.games.last.platforms << Platform.find_by_id(10)

@@ -2,13 +2,19 @@
 
 <br></br>
 
-<ul>
+<div class="lists">
+  <ul>
   <% @user.games.each do |game| %>
     <li><b><%= game.title %></b>
       <ul>
         <li>On: <%= game.platforms[0].name %></li>
-        <li><%= game.notes %></li>
+        <% if game.notes = "" %>
+          <li>No notes :(</li>
+        <% else %>
+          <li><%= game.notes %></li>
+        <% end %>
       </ul>
     </li>
   <% end %>
-</ul>
+  </ul>
+</div>
