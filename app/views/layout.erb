@@ -4,6 +4,13 @@
     <title>GameJournal</title>
   </head>
   <body>
+    <a href="/">Homepage</a>
+    <% if logged_in? %>
+      <a href="/logout">Logout</a>
+    <% else %>
+      <a href="/login">Log In!</a>
+      <a href="/signup">Sign Up!</a>
+    <% end %>
 
     <%= yield %>
 

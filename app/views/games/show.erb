@@ -6,7 +6,7 @@
   <% @user.games.each do |game| %>
     <li><b><%= game.title %></b>
       <ul>
-        <li><%= game.platforms[0] %></li>
+        <li>On: <%= game.platforms[0] %></li>
         <li><%= game.notes %></li>
       </ul>
     </li>

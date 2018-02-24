@@ -1,0 +1,14 @@
+<h1>List of recent games, accompanied by user's notes</h1>
+
+<br></br>
+
+<ul>
+  <% @games.each do |game| %>
+    <ul><%= game.title %> owned by: <%= game.users[0] %> on ???<br>
+      <ul>
+        <li><%= game.genre %></li>
+        <li><%= game.notes %></li>
+      </ul>
+    </ul><br>
+  <% end %>
+</ul>
