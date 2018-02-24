@@ -1,5 +1,5 @@
 module Slugifiable
-  
+
   module InstanceMethods
     def slug
       self.username.split(" ").map do |word|
@@ -14,6 +14,4 @@ module Slugifiable
       User.where("LOWER(username) = ?", "#{unslug_name}").first
     end
   end
-
-
 end

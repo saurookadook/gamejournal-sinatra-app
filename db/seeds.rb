@@ -35,3 +35,8 @@ genres_list.each do |name, genre_hash|
   # p.name = name
   # p.save
 end
+
+game1 = Game.create(title: "Doom", genre_id: "4")
+
+user1.games << game1
+user1.games.last.platforms << Platform.find_by_id(5)
