@@ -15,7 +15,8 @@ class GamesController < ApplicationController
   end
 
   get '/games/:slug' do
-    @current_user = current_user
+    @game = Game.find_by_slug(params[:slug])
+
     erb :"games/show_by_slug"
   end
 
@@ -36,6 +37,8 @@ class GamesController < ApplicationController
 
   end
 
-  delete '/games/:id/delete'
+  delete '/games/:id/delete' do
+
+  end
 
 end
