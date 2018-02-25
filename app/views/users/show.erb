@@ -8,7 +8,8 @@
     <li><b><%= game.title %></b>
       <ul>
         <li>On: <%= game.platforms[0].name %></li>
-        <% if game.notes = "" %>
+
+        <% if game.notes == "" || game.notes == nil %>
           <li>No notes :(</li>
         <% else %>
           <li><%= game.notes %></li>

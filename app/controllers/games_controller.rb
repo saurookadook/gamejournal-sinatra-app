@@ -22,7 +22,8 @@ class GamesController < ApplicationController
 
   get '/games/:slug/edit' do
     @game = Game.find_by_slug(params[:slug])
-
+    @platforms = Platform.all
+    @genres = Genre.all
     erb :"games/edit_game"
   end
   # get '/game/:id' do
