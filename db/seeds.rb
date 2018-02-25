@@ -1,5 +1,5 @@
 user1 = User.create(username: "saurookadook", email: "maskiella@gmail.com", password: "ilovecatz")
-user2 = User.create(username: "HerpDerpSean", email: "slewis@bostonphil.org", password: "imaderptits")
+user2 = User.create(username: "HerpDerpSean", email: "slewis@bostonphil.org", password: "imrealdumb")
 
 platforms_list = {
   "Steam" => {},
@@ -39,9 +39,13 @@ end
 
 game1 = Game.create(title: "Doom", genre_id: 4)
 game2 = Game.create(title: "Mystic Messenger", genre_id: 5)
+game3 = Game.create(title: "Hello Kitty: Big City Dreams", genre_id: 5)
 
 user1.games << game1
 user1.games.last.platforms << Platform.find_by_id(5)
 
 user2.games << game2
 user2.games.last.platforms << Platform.find_by_id(10)
+
+user2.games << game3
+user2.games.last.platforms << Platform.find_by_id(8)

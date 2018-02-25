@@ -1,7 +1,5 @@
 class GamesController < ApplicationController
 
-  use Rack::Flash
-
   get '/games' do
     @current_user = current_user
     @users = User.all

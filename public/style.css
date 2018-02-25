@@ -17,7 +17,7 @@ body {
     1px 1px 0 #000;
 }
 
-#welcome {
+.main {
   background: #C0C0C0;
   padding: 15px 0px 15px;
   width: 100%;
@@ -26,6 +26,10 @@ body {
     1px -1px 0 #000,
     -1px 1px 0 #000,
     1px 1px 0 #000;
+}
+
+#signup > a {
+  color: #FFF;
 }
 
 .lists {
@@ -38,6 +42,10 @@ body {
   text-decoration: none;
 }
 
+.labels {
+  font: 30px;
+  padding: 0px 0px 5px;
+}
 /*ul li {
   list-style-type: : none;
 }*/
