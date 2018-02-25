@@ -11,6 +11,8 @@ class GamesController < ApplicationController
 
   get '/games/new' do
     @current_user = verify_user
+    @genres = Genre.all
+    @platforms = Platforms.all
     erb :"tweets/add_game"
   end
 

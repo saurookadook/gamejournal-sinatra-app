@@ -1,1 +1,13 @@
 <!-- when adding game to array of games, make sure to associate chosen platform with user's games -->
+<h1>Add a new game to your Journal:</h1>
+
+<br></br>
+
+<form method="POST" action="/games">
+  <h2>Title: <input type="text" name="title" id="title"></h2><br>
+  <h2>Choose an existing genre:</h2><br>
+    <% @genres.each do |genre| %>
+    
+    <% end %>
+
+</form>
