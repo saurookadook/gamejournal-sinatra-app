@@ -1,4 +1,4 @@
-class Game < ActiveRecord::Base
+class ArchivedGame < ActiveRecord::Base
 
   belongs_to :genre
   has_many :user_games
@@ -16,4 +16,5 @@ class Game < ActiveRecord::Base
     unslug_title = slug.split("-").join(" ")
     Game.where("LOWER(title) = ?", "#{unslug_title}").first
   end
+
 end
