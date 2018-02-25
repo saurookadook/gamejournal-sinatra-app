@@ -8,6 +8,7 @@
     <div class="nav_links"><a href="/">Homepage</a>
     <% if logged_in? %>
       <a href="/users/<%= @current_user.slug %>">User Page</a>
+      <a href="/games/new">Add Game to Journal</a>
       <a href="/logout">Logout</a>
     <% else %>
       <a href="/login">Log In!</a>

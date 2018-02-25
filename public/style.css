@@ -34,6 +34,7 @@ body {
 
 .lists {
   list-style-type: none;
+  margin-left: 10px;
   text-align: left;
 }
 

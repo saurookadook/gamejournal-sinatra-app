@@ -13,7 +13,7 @@ class ApplicationController < Sinatra::Base
 
   helpers do
     def current_user
-      @current_user ||= User.find_by_id(session[:id]) if session[:id]
+      @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
     end
 
     def logged_in?
@@ -72,7 +72,7 @@ class ApplicationController < Sinatra::Base
       redirect to "/signup"
     elsif params[:username] != "" && params[:email] != "" && params[:password] != ""
       @user = User.create(params)
-      session[:id] = @user.id
+      session[:user_id] = @user.id
       redirect to "/users/#{@user.slug}"
     else
       flash[:message] = "You must enter a username, email, and password in order to create an account. Please try again."
@@ -86,7 +86,7 @@ class ApplicationController < Sinatra::Base
       flash[:message] = "Could not find an account with the username you entered. Please try again."
       redirect to "/login"
     elsif @user.authenticate(params[:password])
-      session[:id] = @user.id
+      session[:user_id] = @user.id
       redirect to "/users/#{@user.slug}"
     else
       flash[:message] = "You have entered an incorrect username and/or password. Please try again."

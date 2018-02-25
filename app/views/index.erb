@@ -11,15 +11,15 @@
 <br></br>
 
 <div class="lists">
-  <ul>
+  <!-- <ul> -->
     <% @users.each do |user| %>
-      <li><b><%= user.username %></b>
+      <h3><b><%= user.username %></b></h3>
         <ul>
           <% user.games.each do |game| %>
             <li><a href="/games/<%= game.slug %>"><%= game.title %></a></li><br>
           <% end %>
         </ul>
-      </li><br>
+      <!-- </li><br> -->
     <% end %>
-  </ul>
+  <!-- </ul> -->
 </div>

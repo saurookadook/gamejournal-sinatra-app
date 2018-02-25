@@ -1,13 +1,40 @@
 <!-- when adding game to array of games, make sure to associate chosen platform with user's games -->
+<% if flash.has?(:message) %>
+  <p><%= flash[:message] %></p>
+<% end %>
+
+
 <h1 class="main">Add a new game to your Journal:</h1>
 
 <br></br>
 
 <form method="POST" action="/games">
   <h2>Title: <input type="text" name="title" id="title"></h2><br>
-  <h2>Choose an existing genre:</h2><br>
-    <% @genres.each do |genre| %>
-      
+
+  <h2>Choose the platform for which you own this title: </h2><br>
+    <% @platforms.each do |platform| %>
+      <label for="platform_<%= platform.id %>"><%= platform.name %></label>
+      <input type="radio" name="game[platform_id]" id="platform_<%= platform.id %>"><br>
     <% end %>
 
+  <h2>Don't see your platform? Add a new one:</h2><br>
+    <label for="platform">New Platform: </label>
+    <input type="text" name="platform" id="platform">
+
+  <h2>Choose an existing genre:</h2><br>
+    <% @genres.each do |genre| %>
+      <label for="genre_<%= genre.id %>"><%= genre.name %></label>
+      <input type="radio" name="game[genre_id]" id="genre_<%= genre.id %>" value="<%= genre.id %>"><br>
+    <% end %>
+  <h2>Are these not the genres you're looking for? Add a new one:</h2><br>
+    <label for="genre">New Genre: </label>
+    <input type="text" name="genre" id="genre">
+
+  <h2>Add any additional notes about this game, both to record for later reference or to share with other users:</h2><br>
+    <textarea name="notes" id="notes" rows="10" cols="30">Enter notes here....</textarea>
+
+    <br></br>
+
+    <input type="submit" value="Confirm">
+    <input type="reset">
 </form>
