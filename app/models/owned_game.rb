@@ -1,7 +1,7 @@
 class OwnedGame < ActiveRecord::Base
 
-  belongs_to :genre
   belongs_to :user
+  belongs_to :genre
   belongs_to :platform
 
   def slug
