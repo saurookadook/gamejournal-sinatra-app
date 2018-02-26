@@ -37,18 +37,21 @@ genres_list.each do |name, genre_hash|
   # p.save
 end
 
-game1 = Game.create(title: "Doom", genre_id: 4)
-game2 = Game.create(title: "Mystic Messenger", genre_id: 5)
-game3 = Game.create(title: "Hello Kitty: Big City Dreams", genre_id: 5)
+owned_game1 = OwnedGame.create(title: "Doom", genre_id: 4)
+archived_game1 = ArchivedGame.create(title: "Doom", genre_id: 4)
+owned_game2 = OwnedGame.create(title: "Mystic Messenger", genre_id: 5)
+archived_game2 = ArchivedGame.create(title: "Mystic Messenger", genre_id: 5)
+owned_game3 = OwnedGame.create(title: "Hello Kitty: Big City Dreams", genre_id: 5)
+archived_game3 = ArchivedGame.create(title: "Hello Kitty: Big City Dreams", genre_id: 5)
 
-user1.games << game1
-user1.games.last.platforms << Platform.find_by_id(2)
-
-user2.games << game1
-user2.games.last.platforms << Platform.find_by_id(3)
-
-user2.games << game2
-user2.games.last.platforms << Platform.find_by_id(10)
-
-user2.games << game3
-user2.games.last.platforms << Platform.find_by_id(8)
+# user1.games << game1
+# user1.games.last.platforms << Platform.find_by_id(2)
+#
+# user2.games << game1
+# user2.games.last.platforms << Platform.find_by_id(3)
+#
+# user2.games << game2
+# user2.games.last.platforms << Platform.find_by_id(10)
+#
+# user2.games << game3
+# user2.games.last.platforms << Platform.find_by_id(8)

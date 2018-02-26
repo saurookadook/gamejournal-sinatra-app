@@ -1,4 +1,4 @@
-class CreateArchivedGames.rb < ActiveRecord::Migration[5.1]
+class CreateArchivedGames < ActiveRecord::Migration[5.1]
   def change
     create_table :archived_games do |t|
       t.string :title
