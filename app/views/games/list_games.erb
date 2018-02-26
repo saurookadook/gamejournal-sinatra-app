@@ -1,14 +1,21 @@
-<h1 class="main">List of recent games, accompanied by user's notes</h1>
+<h1 class="main">List of recent games and their owners</h1>
 
 <br></br>
 
 <ul>
-  <% @games.each do |game| %>
-    <ul><%= game.title %> owned by: <%= game.users[0] %> on ???<br>
-      <ul>
+  <% @archived_games.each do |game| %>
+    <ul><%= game.title %>
+      <% @users.each do |user| %>
+        <% if user.owned_games.select{|o_g| o_g.title == game.title} != [] %>
+          <li>Owned by:
+            <ul>
+              <li><a href="/users/<%= user.slug %>"><%= user.username %></a></li>
+            </ul>
+          </li><br>
+        <% end %>
+      <% end %>
         <li><%= game.genre %></li>
-        <li><%= game.notes %></li>
-      </ul>
+        <li><%= game.platforms %></li>
     </ul><br>
   <% end %>
 </ul>

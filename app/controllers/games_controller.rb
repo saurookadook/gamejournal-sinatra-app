@@ -3,7 +3,7 @@ class GamesController < ApplicationController
   get '/games' do
     @current_user = current_user
     @users = User.all
-    @games = Game.all
+    @archived_games = ArchivedGame.all
     erb :"games/list_games"
   end
 

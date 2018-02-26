@@ -4,7 +4,7 @@
 
 <div class="lists">
   <ul>
-  <% @user.games.each do |game| %>
+  <% @user.owned_games.each do |game| %>
     <li><b><%= game.title %></b>
       <ul>
         <li>On: <%= game.platforms[0].name %></li>

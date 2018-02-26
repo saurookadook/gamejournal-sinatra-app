@@ -34,13 +34,18 @@ body {
 
 .lists {
   list-style-type: none;
-  margin-left: 10px;
+  margin-left: 100px;
   text-align: left;
 }
 
 .lists a {
   color: #FFF;
   text-decoration: none;
+}
+
+.lists a:hover {
+  color: #FFF;
+  text-decoration: underline;
 }
 
 .labels {
