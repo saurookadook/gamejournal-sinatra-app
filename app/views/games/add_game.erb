@@ -14,7 +14,7 @@
   <h2>Choose the platform for which you own this title: </h2><br>
     <% @platforms.each do |platform| %>
       <label for="platform_<%= platform.id %>"><%= platform.name %></label>
-      <input type="radio" name="game[platform_id]" id="platform_<%= platform.id %>"><br>
+      <input type="radio" name="game[platform_id]" id="platform_<%= platform.id %>" value="<%= platform.id %>"><br>
     <% end %>
 
   <h2>Don't see your platform? Add a new one:</h2><br>

@@ -8,6 +8,7 @@ class GamesController < ApplicationController
   end
 
   get '/games/new' do
+    puts Genre.all
     @current_user = verify_user
     @platforms = Platform.all
     @genres = Genre.all
@@ -36,15 +37,15 @@ class GamesController < ApplicationController
   # end
 
   post '/games' do
-    puts params
+    puts Genre.all
     @user = User.find(session[:user_id])
-    if title == ""
+    if params[:title] == ""
       flash[:message] = "You must enter a title for the game you'd like to add to your Journal. Please try again."
       redirect to '/games/new'
-    elsif !params[:game][:platform_id].nil? || params[:platform] != ""
+    elsif params[:game][:platform_id].nil? || params[:platform] != ""
       flash[:message] = "You must either select a platform or create a new one, and can only associate one platform with the created game."
       redirect to '/games/new'
-    elsif !params[:game][:genre_id].nil? || params[:genre] != ""
+    elsif params[:game][:genre_id].nil? || params[:genre] != ""
       flash[:message] = "You must either select a genre or create a new one, and can only associate one genre with the created game."
       redirect to '/games/new'
     end
@@ -62,13 +63,13 @@ class GamesController < ApplicationController
       @genre = Genre.find_or_create_by(name: params[:genre])
     end
 
-    @owned_game.platform = @platform
-    @owned_game.genre = @genre
+    @owned_game.platform_id = @platform.id
+    @owned_game.genre_id = @genre.id
     @owned_game.notes = params[:notes]
     @owned_game.save
 
-    @archived_game.platforms << @platform if !(@archived_game.platforms.include?(@platform))
-    @archived_game.genre = @genre if !(@archived_game.genre == @genre)
+    @archived_game.platform_ids << @platform.id if !(@archived_game.platform_ids.include?(@platform.id))
+    @archived_game.genre_id = @genre.id if !(@archived_game.genre_id == @genre.id)
     @archived_game.save
 
 

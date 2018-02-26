@@ -38,6 +38,13 @@ genres_list.each do |name, genre_hash|
   # p.save
 end
 
+# genre1 = Genre.create(name: "Action")
+# genre2 = Genre.create(name: "Adventure")
+# genre3 = Genre.create(name: "MMO")
+# genre4 = Genre.create(name: "RPG")
+# genre5 = Genre.create(name: "Simulation")
+# genre6 = Genre.create(name: "Strategy")
+
 owned_game1 = OwnedGame.create(title: "Doom", genre_id: 4, platform_id: 2, notes: "Found lots of big guns")
 owned_game2 = OwnedGame.create(title: "Mystic Messenger", genre_id: 5, platform_id: 10)
 owned_game3 = OwnedGame.create(title: "Mystic Messenger", genre_id: 5, platform_id: 10, notes: "Literally my favorite game")
