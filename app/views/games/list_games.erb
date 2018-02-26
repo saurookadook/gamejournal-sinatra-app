@@ -5,7 +5,7 @@
 <div class="lists">
   <% @archived_games.each do |game| %>
     <ul><h2><%= game.title %></h2>
-      <li>Owned by:
+      <li>Owned by: <!-- figure out way to remove this if no users own game -->
         <% @users.each do |user| %>
           <% if user.owned_games.select{|o_g| o_g.title == game.title} != [] %>
             <ul>

@@ -38,21 +38,21 @@ genres_list.each do |name, genre_hash|
   # p.save
 end
 
-owned_game1 = OwnedGame.create(title: "Doom", genre_id: 4, platform_id: 2)
+owned_game1 = OwnedGame.create(title: "Doom", genre_id: 4, platform_id: 2, notes: "Found lots of big guns")
 owned_game2 = OwnedGame.create(title: "Doom", genre_id: 4, platform_id: 3)
 archived_game1 = ArchivedGame.create(title: "Doom", genre_id: 4, platform_ids: [1, 2, 3])
 
 owned_game3 = OwnedGame.create(title: "Mystic Messenger", genre_id: 5, platform_id: 10)
-archived_game2 = ArchivedGame.create(title: "Mystic Messenger", genre_ids: 5, platform_ids: [10])
+archived_game2 = ArchivedGame.create(title: "Mystic Messenger", genre_id: 5, platform_ids: [10])
 
-owned_game4 = OwnedGame.create(title: "Hello Kitty: Big City Dreams", genre_id: 5, platform_id: 8)
+owned_game4 = OwnedGame.create(title: "Hello Kitty: Big City Dreams", genre_id: 5, platform_id: 8, notes: "ZOMG FOUND THE CUTEST OUTFIT =^.^=")
 archived_game3 = ArchivedGame.create(title: "Hello Kitty: Big City Dreams", genre_id: 5, platform_ids: [8])
 
-owned_game5 = OwnedGame.create(title: "Witcher 3: Wild Hunt", genre_id: 4, platform_id: 2)
+owned_game5 = OwnedGame.create(title: "Witcher 3: Wild Hunt", genre_id: 4, platform_id: 2, notes: "Have best Gwent deck ever. Literally no one can beat me >:]")
 archived_game4 = ArchivedGame.create(title: "Witcher 3: Wild Hunt", genre_id: 4, platform_ids: [1, 2, 3])
 
-owned_game6 = OwnedGame.create(title: "Hearthstone", genre_id: 6, platform_id: 10)
-owned_game7 = OwnedGame.create(title: "Hearthstone", genre_id: 6, platform_id: 1)
+owned_game6 = OwnedGame.create(title: "Hearthstone", genre_id: 6, platform_id: 10, notes: "Cubelock op....")
+owned_game7 = OwnedGame.create(title: "Hearthstone", genre_id: 6, platform_id: 1, notes: "All of my decks are terrible. Halp!")
 archived_game5 = ArchivedGame.create(title: "Hearthstone", genre_id: 6, platform_ids: [1, 10])
 
 
