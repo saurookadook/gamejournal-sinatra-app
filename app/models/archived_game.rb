@@ -14,7 +14,7 @@ class ArchivedGame < ActiveRecord::Base
 
   def self.find_by_slug(slug)
     unslug_title = slug.split("-").join(" ")
-    Game.where("LOWER(title) = ?", "#{unslug_title}").first
+    self.where("LOWER(title) = ?", "#{unslug_title}").first
   end
 
 end

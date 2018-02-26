@@ -15,7 +15,7 @@ class GamesController < ApplicationController
   end
 
   get '/games/:slug' do
-    @game = Game.find_by_slug(params[:slug])
+    @archived_game = ArchivedGame.find_by_slug(params[:slug])
     @users = User.all
     erb :"games/show_by_slug"
   end

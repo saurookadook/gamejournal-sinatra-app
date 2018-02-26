@@ -1,14 +1,14 @@
-<h1 class="main"><%= @game.title %></h1>
+<h1 class="main">Entries for <%= @archived_game.title %></h1>
 
 <br></br>
 
 <div class="lists">
   <% @users.each do |user| %>
-    <% if user.games.include?(@game) %>
+    <% users_game = user.owned_games.select{|o_g| o_g.title == @archived_game.title}.first %>
+    <% if !users_game.nil? %>
       <h2><%= user.username %></h2>
       <ul>
-        <% users_game = user.games.find_by_id(@game.id) %>
-        <li>On: <%= users_game.platforms[0].name %></li>
+        <li>On: <%= users_game.platform %></li>
         <% if users_game.notes = "" %>
           <li>No notes :(</li>
         <% else %>

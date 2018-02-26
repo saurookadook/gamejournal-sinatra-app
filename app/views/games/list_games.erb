@@ -2,20 +2,24 @@
 
 <br></br>
 
-<ul>
+<div class="lists">
   <% @archived_games.each do |game| %>
-    <ul><%= game.title %>
-      <% @users.each do |user| %>
-        <% if user.owned_games.select{|o_g| o_g.title == game.title} != [] %>
-          <li>Owned by:
+    <ul><h2><%= game.title %></h2>
+      <li>Owned by:
+        <% @users.each do |user| %>
+          <% if user.owned_games.select{|o_g| o_g.title == game.title} != [] %>
             <ul>
               <li><a href="/users/<%= user.slug %>"><%= user.username %></a></li>
             </ul>
           </li><br>
         <% end %>
       <% end %>
+      <% if game.genre != "" %>
         <li><%= game.genre %></li>
+      <% else%>
+        <li>No genre listed :(</li>
+      <% end %>
         <li><%= game.platforms %></li>
     </ul><br>
   <% end %>
-</ul>
+</div>
