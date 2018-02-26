@@ -39,7 +39,7 @@ genres_list.each do |name, genre_hash|
 end
 
 owned_game1 = OwnedGame.create(title: "Doom", genre_id: 4, platform_id: 2, notes: "Found lots of big guns")
-owned_game3 = OwnedGame.create(title: "Mystic Messenger", genre_id: 5, platform_id: 10)
+owned_game2 = OwnedGame.create(title: "Mystic Messenger", genre_id: 5, platform_id: 10)
 owned_game3 = OwnedGame.create(title: "Mystic Messenger", genre_id: 5, platform_id: 10, notes: "Literally my favorite game")
 owned_game4 = OwnedGame.create(title: "Hello Kitty: Big City Dreams", genre_id: 5, platform_id: 8, notes: "ZOMG FOUND THE CUTEST OUTFIT =^.^=")
 owned_game5 = OwnedGame.create(title: "Witcher 3: Wild Hunt", genre_id: 4, platform_id: 1, notes: "Have best Gwent deck ever. Literally no one can beat me >:]")

@@ -1,9 +1,11 @@
 <h1 class="main"><%= @user.username %>'s Journal</h1>
 
+<h2>Owned games:</h2>
+
 <br></br>
 
 <div class="lists">
-  <ul>
+  <ul class="inner_lists">
   <% @user.owned_games.each do |game| %>
     <li><b><%= game.title %></b>
       <ul>

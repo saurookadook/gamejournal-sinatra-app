@@ -8,9 +8,9 @@
   <!-- <ul> -->
     <% @users.each do |user| %>
       <h3><b><%= user.username %></b></h3>
-        <ul>
+        <ul class="inner_lists">
           <% user.owned_games.each do |game| %>
-            <li><a href="/games/<%= game.slug %>"><%= game.title %></a></li><br>
+            <li><a href="/games/<%= game.slug %>"><%= game.title %></a></li>
           <% end %>
         </ul>
       <!-- </li><br> -->

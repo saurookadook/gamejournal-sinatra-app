@@ -40,15 +40,29 @@ class GamesController < ApplicationController
     if title == ""
       flash[:message] = "You must enter a title for the game you'd like to add to your Journal. Please try again."
       redirect to '/games/add_game'
-    elsif params[:game][:platform_id] != "" || params[:game][:platform_id] != nil
-      @game = Game.find_or_create_by(title: params[:title])
+    elsif !params[:game][:platform_id].nil? || params[:platform] != ""
+      flash[:message] = "You must either select a platform or create a new one, and can only associate one platform with the created game."
+      redirect to '/games/add_game'
+    elsif !params[:game][:genre_id].nil? || params[:genre] != ""
+      flash[:message] = "You must either select a genre or create a new one, and can only associate one genre with the created game."
+      redirect to '/games/add_game'
+    end
+
+    @owned_game = OwnedGame.create(title: params[:title])
+    @archived_game = ArchivedGame.find_or_create_by(title: params[:title])
+
+    if params[:game][:platform_id] != nil
       @platform = Platform.find_by_id(params[:game][:platform_id])
-      @user.games << @game if !@user.games.include?(@game)
-    elsif params[:platform]
-    elsif params[:game][:genre_id] != "" || params[:game][:genre_id] != nil
-    elsif params[:genre]
+    elsif params[:platform] != ""
+      @platform = Platform.find_or_create_by(name: params[:platform])
+    elsif params[:game][:genre_id] != nil
+      @genre = Genre.find_by_id(params[:game][:genre_id])
+    elsif params[:genre] != ""
+      @genre = Genre.find_or_create_by(name: params[:genre])
+    end
 
-
+      @user.owned_games << @owned_game
+      # @user.owned_games << @owned_game if !@user.owned_games.include?(@owned_game)
     end
 
     redirect to "/users/show"

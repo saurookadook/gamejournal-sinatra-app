@@ -48,6 +48,11 @@ body {
   text-decoration: underline;
 }
 
+.inner_lists li {
+  margin: 0px;
+  padding-bottom: 10px;
+}
+
 .labels {
   font: 30px;
   padding: 0px 0px 5px;
