@@ -14,12 +14,17 @@
           </li><br>
         <% end %>
       <% end %>
-      <% if game.genre != "" %>
-        <li><%= game.genre %></li>
+      <% if !game.genre.name.nil? %>
+        <li>Genre: <%= game.genre.name %></li>
       <% else%>
         <li>No genre listed :(</li>
       <% end %>
-        <li><%= game.platforms %></li>
+      <h3>Available on:</h3>
+      <% game.platforms.each do |platform| %>
+        <% if !platform.name.nil? %>
+          <li><%= platform.name %></li>
+        <% end %>
+      <% end %>
     </ul><br>
   <% end %>
 </div>
