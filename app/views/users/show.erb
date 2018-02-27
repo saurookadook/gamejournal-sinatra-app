@@ -18,6 +18,13 @@
         <% end %>
       </ul>
     </li>
+    <form class="buttons" method="GET" action="/games/<%= game.slug %>/edit">
+      <input type="submit" value="Edit Game">
+    </form>
+    <form class="buttons" method="POST" action="/games/<%= game.slug %>">
+      <input id="hidden" type="hidden" name="_method" value="DELETE">
+      <input type="submit" value="Remove Game from Journal">
+    </form>
   <% end %>
   </ul>
 </div>

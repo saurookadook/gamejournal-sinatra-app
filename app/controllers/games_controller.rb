@@ -84,7 +84,7 @@ class GamesController < ApplicationController
   end
 
   delete '/games/:slug/delete' do
-
+    
   end
 
 end
