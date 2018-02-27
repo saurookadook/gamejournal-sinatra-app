@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   has_many :owned_games
+  # ???
   has_many :archived_games, through: :user_games
 
   def slug
