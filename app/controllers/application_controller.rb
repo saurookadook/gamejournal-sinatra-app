@@ -73,6 +73,7 @@ class ApplicationController < Sinatra::Base
     elsif params[:username] != "" && params[:email] != "" && params[:password] != ""
       @user = User.create(params)
       session[:user_id] = @user.id
+      flash[:message] = "Your account has been successfully created!"
       redirect to "/users/#{@user.slug}"
     else
       flash[:message] = "You must enter a username, email, and password in order to create an account. Please try again."
@@ -87,6 +88,7 @@ class ApplicationController < Sinatra::Base
       redirect to "/login"
     elsif @user.authenticate(params[:password])
       session[:user_id] = @user.id
+      flash[:message] = "Log in successful!"
       redirect to "/users/#{@user.slug}"
     else
       flash[:message] = "You have entered an incorrect username and/or password. Please try again."

@@ -78,6 +78,7 @@ class GamesController < ApplicationController
     @user.owned_games << @owned_game
     # @user.owned_games << @owned_game if !@user.owned_games.include?(@owned_game)
 
+    flash[:message] = "Game successfully added to your journal!"
     redirect to "/users/#{@user.slug}"
   end
 
@@ -120,7 +121,7 @@ class GamesController < ApplicationController
     @archived_game.genre_id = @genre.id if !(@archived_game.genre_id == @genre.id)
     @archived_game.save
 
-
+    flash[:message] = "Game has been successfully edited!"
     redirect to "/users/#{@user.slug}"
   end
 

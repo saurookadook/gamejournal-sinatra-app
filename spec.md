@@ -6,10 +6,10 @@ Specs:
 - [x] Include more than one model class (list of model class names e.g. User, Post, Category) => I probably have too many...
 - [x] Include at least one has_many relationship (x has_many y e.g. User has_many Posts) => Again, probably have too many...
 - [x] Include user accounts => Users can have accounts, but must sign up with a username, email, and password, and must not use a username and/or email which already exists in the database
-- [x] Ensure that users can't modify content created by other users => Users do not have the option to edit/remove content from other users, as the buttons allowing them to do so are not displayed on pages which contain content from other users and the routes are set up so that these functions cannot be accessed by simply entering the route in the browser
-- [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
-- [x] Include user input validations
-- [x] Display validation failures to user with error message (example form URL e.g. /posts/new)
+- [x] Ensure that users can't modify content created by other users => Users do not have the option to edit/remove content from other users, as the buttons allowing them to do so are not displayed on pages which contain content from other users and the routes are set up so that this functionality cannot be accessed by simply entering the route in the browser
+- [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying => These can all be done via the `games/new` route, which allows for the creation of all resources and stores them in relation to OwnedGame and ArchivedGame objects
+- [x] Include user input validations => Flash messages are approriately displayed when new actions are successfully executed
+- [x] Display validation failures to user with error message (example form URL e.g. /posts/new) => Flash messages displayed appropriately
 - [x] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
 Confirm
