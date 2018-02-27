@@ -111,12 +111,14 @@ class GamesController < ApplicationController
     end
 
     # use update method?
-    @owned_game.platform_id = @platform.id
-    @owned_game.genre_id = @genre.id
-    @owned_game.notes = params[:notes]
-    @owned_game.save
+    @owned_game.update(title: params[:title], genre_id: @genre.id, platform_id: @platform.id, notes: params[:notes])
+    # @owned_game.platform_id = @platform.id
+    # @owned_game.genre_id = @genre.id
+    # @owned_game.notes = params[:notes]
+    # @owned_game.save
 
     # use update method?
+    # @archived_game.update(title: params[:title], genre_id: @genre.id, platform_ids: ??)
     @archived_game.platform_ids << @platform.id if !(@archived_game.platform_ids.include?(@platform.id))
     @archived_game.genre_id = @genre.id if !(@archived_game.genre_id == @genre.id)
     @archived_game.save

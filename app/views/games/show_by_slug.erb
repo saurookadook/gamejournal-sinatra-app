@@ -12,8 +12,11 @@
     <% if !users_game.nil? %>
       <h2><%= user.username %></h2>
       <ul>
-        <li>On: <%= users_game.platform %></li>
-        <% if users_game.notes = "" %>
+        <h3><b>On:</b></h3>
+        <li><%= users_game.platform.name %></li>
+        
+        <h3><b>Notes:</b></h3>
+        <% if users_game.notes == "" %>
           <li>No notes :(</li>
         <% else %>
           <li><%= users_game.notes %></li>
