@@ -4,7 +4,7 @@
 <% end %>
 
 
-<h1 class="main">Add a new game to your Journal:</h1>
+<h1 class="main">Edit Game: <%= @game.title %></h1>
 
 <br></br>
 
@@ -14,7 +14,7 @@
   <h2>Choose the platform for which you own this title: </h2><br>
     <% @platforms.each do |platform| %>
       <label for="platform_<%= platform.id %>"><%= platform.name %></label>
-      <input type="radio" name="game[platform_id]" id="platform_<%= platform.id %>" value="<%= platform.id %>"<%= 'checked' if @game.platforms.include?(platform)%>><br>
+      <input type="radio" name="game[platform_id]" id="platform_<%= platform.id %>" value="<%= platform.id %>"<%= 'checked' if @game.platform_id == platform.id%>><br>
     <% end %>
 
   <h2>Don't see your platform? Add a new one:</h2><br>
@@ -24,15 +24,18 @@
   <h2>Choose an existing genre:</h2><br>
     <% @genres.each do |genre| %>
       <label for="genre_<%= genre.id %>"><%= genre.name %></label>
-      <input type="radio" name="game[genre_id]" id="genre_<%= genre.id %>" value="<%= genre.id %>" <%= 'checked' if @game.genre == genre%>><br>
+      <input type="radio" name="game[genre_id]" id="genre_<%= genre.id %>" value="<%= genre.id %>" <%= 'checked' if @game.genre_id == genre.id%>><br>
     <% end %>
   <h2>Are these not the genres you're looking for? Add a new one:</h2><br>
     <label for="genre">New Genre: </label>
     <input type="text" name="genre" id="genre">
 
   <h2>Add any additional notes about this game, both to record for later reference or to share with other users:</h2><br>
-    <textarea name="notes" id="notes" rows="10" cols="30">Enter notes here....</textarea>
-
+    <% if @game.notes == "" %>
+     <textarea name="notes" id="notes" rows="10" cols="30">Enter notes here...</textarea>
+    <% else %>
+      <textarea name="notes" id="notes" rows="10" cols="30"><%= @game.notes %></textarea>
+    <% end %>
     <br></br>
 
     <input type="submit" value="Confirm">

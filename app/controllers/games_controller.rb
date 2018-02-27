@@ -22,7 +22,7 @@ class GamesController < ApplicationController
 
   get '/games/:slug/edit' do
     @current_user = verify_user
-    @game = Game.find_by_slug(params[:slug])
+    @game = @current_user.owned_games.detect{|o_g| o_g == OwnedGame.find_by_slug(params[:slug])}
     @platforms = Platform.all
     @genres = Genre.all
     erb :"games/edit_game"
