@@ -8,7 +8,6 @@ class GamesController < ApplicationController
   end
 
   get '/games/new' do
-    puts Genre.all
     @current_user = verify_user
     @platforms = Platform.all
     @genres = Genre.all
@@ -37,7 +36,6 @@ class GamesController < ApplicationController
   # end
 
   post '/games' do
-    puts Genre.all
     @user = User.find(session[:user_id])
     if params[:title] == ""
       flash[:message] = "You must enter a title for the game you'd like to add to your Journal. Please try again."
@@ -57,7 +55,9 @@ class GamesController < ApplicationController
       @platform = Platform.find(params[:game][:platform_id])
     elsif params[:platform] != ""
       @platform = Platform.find_or_create_by(name: params[:platform])
-    elsif params[:game][:genre_id] != nil
+    end
+
+    if params[:game][:genre_id] != nil
       @genre = Genre.find(params[:game][:genre_id])
     elsif params[:genre] != ""
       @genre = Genre.find_or_create_by(name: params[:genre])

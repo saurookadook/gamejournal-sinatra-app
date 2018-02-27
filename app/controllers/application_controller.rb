@@ -35,7 +35,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    puts Genre.all
+    puts Genre.all.first.id
     @current_user = current_user
     @users = User.all
     erb :index
