@@ -21,6 +21,7 @@ class GamesController < ApplicationController
   end
 
   get '/games/:slug/edit' do
+    @current_user = verify_user
     @game = Game.find_by_slug(params[:slug])
     @platforms = Platform.all
     @genres = Genre.all
@@ -80,11 +81,50 @@ class GamesController < ApplicationController
   end
 
   patch '/games/:slug' do
+    @user = User.find(session[:user_id])
+    if params[:title] == ""
+      flash[:message] = "You must enter a title for the game you'd like to add to your Journal. Please try again."
+      redirect to '/games/new'
+    elsif params[:game][:platform_id].nil? || params[:platform] != ""
+      flash[:message] = "You must either select a platform or create a new one, and can only associate one platform with the created game."
+      redirect to '/games/new'
+    elsif params[:game][:genre_id].nil? || params[:genre] != ""
+      flash[:message] = "You must either select a genre or create a new one, and can only associate one genre with the created game."
+      redirect to '/games/new'
+    end
 
+    @owned_game = @user.owned_games.detect{|o_g| o_g == OwnedGame.find_by_slug(params[:slug])}
+    @archived_game = ArchivedGame.find_or_create_by(title: params[:title])
+
+    if params[:game][:platform_id] != nil
+      @platform = Platform.find(params[:game][:platform_id])
+    elsif params[:platform] != ""
+      @platform = Platform.find_or_create_by(name: params[:platform])
+    end
+
+    if params[:game][:genre_id] != nil
+      @genre = Genre.find(params[:game][:genre_id])
+    elsif params[:genre] != ""
+      @genre = Genre.find_or_create_by(name: params[:genre])
+    end
+
+    # use update method?
+    @owned_game.platform_id = @platform.id
+    @owned_game.genre_id = @genre.id
+    @owned_game.notes = params[:notes]
+    @owned_game.save
+
+    # use update method?
+    @archived_game.platform_ids << @platform.id if !(@archived_game.platform_ids.include?(@platform.id))
+    @archived_game.genre_id = @genre.id if !(@archived_game.genre_id == @genre.id)
+    @archived_game.save
+
+
+    redirect to "/users/#{@user.slug}"
   end
 
   delete '/games/:slug/delete' do
-    
+
   end
 
 end
