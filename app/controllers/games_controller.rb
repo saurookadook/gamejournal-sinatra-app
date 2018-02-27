@@ -124,7 +124,16 @@ class GamesController < ApplicationController
   end
 
   delete '/games/:slug/delete' do
-
+    @current_user = verify_user
+    @game = @current_user.owned_games.detect{|o_g| o_g == OwnedGame.find_by_slug(params[:slug])}
+    # if @game.user_id == session[:user_id]
+      @game.destroy
+      flash[:message] = "#{@game.title} has been successfully removed from your journal."
+      redirect to "/users/#{@current_user.slug}"
+    # else
+    #   flash[:message] = "Sorry, but you cannot remove another user's entries from their journal."
+    #   redirect to "/users"
+    # end
   end
 
 end

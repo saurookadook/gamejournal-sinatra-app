@@ -7,7 +7,7 @@
 <div class="lists">
   <ul class="inner_lists">
   <% @user.owned_games.each do |game| %>
-    <li><b><%= game.title %></b>
+    <h3><b><%= game.title %></b></h3>
       <ul>
         <li>Owned on: <%= game.platform.name %></li>
         <li>Genre: <%= game.genre.name %></li>
@@ -17,14 +17,15 @@
           <li><%= game.notes %></li>
         <% end %>
       </ul>
-    </li>
-    <form class="buttons" method="GET" action="/games/<%= game.slug %>/edit">
-      <input type="submit" value="Edit Game">
-    </form>
-    <form class="buttons" method="POST" action="/games/<%= game.slug %>">
-      <input id="hidden" type="hidden" name="_method" value="DELETE">
-      <input type="submit" value="Remove Game from Journal">
-    </form>
+    <% if @current_user == @user %>
+      <form class="buttons" method="GET" action="/games/<%= game.slug %>/edit">
+        <input type="submit" value="Edit Game">
+      </form>
+      <form class="buttons" method="POST" action="/games/<%= game.slug %>/delete">
+        <input id="hidden" type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Remove Game from Journal">
+      </form>
+    <% end %>
   <% end %>
   </ul>
 </div>

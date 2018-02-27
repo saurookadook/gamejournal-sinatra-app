@@ -9,6 +9,7 @@
 <br></br>
 
 <form method="POST" action="/games/<%= @game.slug %>">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
   <h2>Title: <input type="text" name="title" id="title" value="<%= @game.title %>"></h2><br>
 
   <h2>Choose the platform for which you own this title: </h2><br>
@@ -38,6 +39,6 @@
     <% end %>
     <br></br>
 
-    <input type="submit" value="Confirm">
+    <input type="submit" value="Update">
     <input type="reset">
 </form>
