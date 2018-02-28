@@ -53,6 +53,10 @@ body {
   padding-bottom: 10px;
 }
 
+.details .inner_details {
+  display: inline;
+}
+
 .labels {
   font: 30px;
   padding: 0px 0px 5px;

@@ -12,15 +12,18 @@
     <% if !users_game.nil? %>
       <h2><%= user.username %></h2>
       <ul>
-        <h3><b>On:</b></h3>
-        <li><%= users_game.platform.name %></li>
-        
-        <h3><b>Notes:</b></h3>
-        <% if users_game.notes == "" %>
-          <li>No notes :(</li>
-        <% else %>
-          <li><%= users_game.notes %></li>
-        <% end %>
+        <div class="details">
+          <h3 class="inner_details"><b>On:</b></h3>
+          <li class="inner_details"><%= users_game.platform.name %></li>
+        </div>
+        <div class="details">
+          <h3 class="inner_details"><b>Notes:</b></h3>
+          <% if users_game.notes == "" %>
+            <li class="inner_details">No notes :(</li>
+          <% else %>
+            <li class="inner_details"><%= users_game.notes %></li>
+          <% end %>
+        </div>
       </ul>
     <% end %>
   <% end %>
