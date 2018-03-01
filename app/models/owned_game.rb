@@ -15,4 +15,8 @@ class OwnedGame < ActiveRecord::Base
     self.where("LOWER(title) = ?", "#{unslug_title}").first
   end
 
+  def has_notes?
+    false if self.notes == "" || self.notes == nil
+  end
+
 end

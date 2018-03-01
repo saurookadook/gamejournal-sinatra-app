@@ -16,10 +16,10 @@
         <li><b>Owned on:</b> <%= game.platform.name %></li>
         <li><b>Genre:</b> <%= game.genre.name %></li>
         <li><b>Notes:</b>
-        <% if game.notes == "" || game.notes == nil %>
-          <li>No notes :(</li>
-        <% else %>
+        <% if game.has_notes? %>
           <li><%= game.notes %></li>
+        <% else %>
+          <li>No notes :(</li>
         <% end %>
       </ul>
     <% if @current_user == @user %>

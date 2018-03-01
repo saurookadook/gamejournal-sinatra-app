@@ -59,7 +59,7 @@ class GamesController < ApplicationController
 
     @owned_game.platform_id = @platform.id
     @owned_game.genre_id = @genre.id
-    @owned_game.notes = params[:notes]
+    (params[:notes].nil? || params[:notes] == "") ? @owned_game.notes = "No notes :(" : @owned_game.notes = params[:notes]
     @owned_game.save
 
     @archived_game.platform_ids << @platform.id if !(@archived_game.platform_ids.include?(@platform.id))
