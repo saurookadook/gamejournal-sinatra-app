@@ -28,14 +28,6 @@ class GamesController < ApplicationController
     @genres = Genre.all
     erb :"games/edit_game"
   end
-  # get '/game/:id' do
-  #   @current_user = current_user
-  #   erb :"games/show_by_id"
-  # end
-
-  # get '/games/:id/edit' do
-  #   @current_user = verify_user
-  # end
 
   post '/games' do
     @user = User.find(session[:user_id])
@@ -110,12 +102,7 @@ class GamesController < ApplicationController
       @genre = Genre.find_or_create_by(name: params[:genre])
     end
 
-    # use update method?
     @owned_game.update(title: params[:title], genre_id: @genre.id, platform_id: @platform.id, notes: params[:notes])
-    # @owned_game.platform_id = @platform.id
-    # @owned_game.genre_id = @genre.id
-    # @owned_game.notes = params[:notes]
-    # @owned_game.save
 
     # use update method?
     # @archived_game.update(title: params[:title], genre_id: @genre.id, platform_ids: ??)
