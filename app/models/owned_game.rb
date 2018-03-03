@@ -16,7 +16,11 @@ class OwnedGame < ActiveRecord::Base
   end
 
   def has_notes?
-    false if self.notes == "" || self.notes == nil
+    if self.notes == "" || self.notes == nil
+      false
+    else
+      true
+    end
   end
 
 end
